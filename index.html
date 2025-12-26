@@ -1,104 +1,95 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ইউনিক ব্ল্যাক & হোয়াইট সাইট</title>
+    <title>Mini APKPure</title>
     <style>
-        /* বেসিক স্টাইল */
-        body, html {
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #000; /* কালো ব্যাকগ্রাউন্ড */
-            color: #fff;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background-color: #f5f5f5;
         }
-
-        /* ব্যাকগ্রাউন্ডের জন্য হালকা শ্যাডোর খেলা */
-        .bg-gradient {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #000 100%);
-            z-index: -1;
-        }
-
-        /* মেইন কার্ড */
-        .container {
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
             text-align: center;
-            padding: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-            max-width: 600px;
         }
-
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            background: linear-gradient(to right, #fff, #444);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .search-bar {
+            text-align: center;
+            margin: 20px 0;
         }
-
-        p {
-            font-size: 1.1rem;
-            color: #888;
-            line-height: 1.6;
+        .search-bar input {
+            padding: 10px;
+            width: 50%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
         }
-
-        /* ইউনিক বাটন */
-        .btn {
-            margin-top: 30px;
-            display: inline-block;
-            padding: 12px 35px;
-            background-color: #fff;
-            color: #000;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            border: 2px solid #fff;
+        .app-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 0 20px;
         }
-
-        .btn:hover {
-            background-color: transparent;
-            color: #fff;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
-        }
-
-        /* ডেকোরেশন এলিমেন্ট */
-        .circle {
-            position: absolute;
+        .app-card {
+            background-color: white;
+            border-radius: 10px;
             width: 200px;
-            height: 200px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-            z-index: -1;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            text-align: center;
+            padding: 15px;
+        }
+        .app-card img {
+            width: 100px;
+            height: 100px;
+        }
+        .app-card h3 {
+            font-size: 18px;
+            margin: 10px 0 5px;
+        }
+        .app-card button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .app-card button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-gradient"></div>
-    <div class="circle" style="top: 10%; left: 10%;"></div>
-    <div class="circle" style="bottom: 10%; right: 10%;"></div>
+<header>
+    <h1>Mini APKPure</h1>
+</header>
 
-    <div class="container">
-        <h1>CREATIVE</h1>
-        <p>সাদা এবং কালোর এক অনন্য সংমিশ্রণ। আমরা বিশ্বাস করি সাধারণের মধ্যেই অসাধারণ সৌন্দর্য লুকিয়ে থাকে।</p>
-        <a href="#" class="btn">বিস্তারিত দেখুন</a>
+<div class="search-bar">
+    <input type="text" placeholder="Search for apps...">
+</div>
+
+<div class="app-list">
+    <div class="app-card">
+        <img src="https://via.placeholder.com/100" alt="App 1">
+        <h3>App One</h3>
+        <button>Download</button>
     </div>
+    <div class="app-card">
+        <img src="https://via.placeholder.com/100" alt="App 2">
+        <h3>App Two</h3>
+        <button>Download</button>
+    </div>
+    <div class="app-card">
+        <img src="https://via.placeholder.com/100" alt="App 3">
+        <h3>App Three</h3>
+        <button>Download</button>
+    </div>
+</div>
 
 </body>
 </html>
