@@ -1,0 +1,2 @@
+# techz
+Technology Ideas 
