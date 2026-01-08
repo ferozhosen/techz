@@ -3,646 +3,536 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FJ GADGET | Premium Mobile Accessories</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>FJ GADGET - Mobile Accessories</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --black: #000000;
-            --white: #ffffff;
-            --neon-green: #39FF14;
-            --dark-gray: #121212;
-            --light-gray: #f5f5f5;
-            --medium-gray: #333333;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--black);
-            color: var(--white);
+            background-color: #000;
+            color: #fff;
             line-height: 1.6;
         }
-
-        a {
-            text-decoration: none;
-            color: inherit;
+        
+        /* Breaking News Ticker Styles */
+        .breaking-news {
+            background-color: #111;
+            padding: 8px 0;
+            overflow: hidden;
+            position: relative;
+            border-bottom: 1px solid #333;
         }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header Styles */
-        header {
-            background-color: var(--black);
-            position: sticky;
+        
+        .breaking-label {
+            background-color: #fff;
+            color: #000;
+            padding: 4px 12px;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
             top: 0;
-            z-index: 100;
-            padding: 20px 0;
-            border-bottom: 1px solid var(--medium-gray);
-        }
-
-        .header-content {
+            height: 100%;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-        }
-
-        .brand {
-            font-size: 24px;
-            font-weight: 700;
+            z-index: 2;
+            text-transform: uppercase;
             letter-spacing: 1px;
         }
-
-        .brand span {
-            color: var(--neon-green);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        nav a {
-            font-weight: 500;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--neon-green);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--white);
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        /* Scrolling Ticker */
+        
         .ticker-container {
-            background-color: var(--black);
             overflow: hidden;
-            border-bottom: 1px solid var(--medium-gray);
-        }
-
-        .ticker {
-            display: flex;
-            padding: 12px 0;
             white-space: nowrap;
+            position: relative;
+            margin-left: 120px;
         }
-
-        .ticker-content {
+        
+        .ticker {
             display: inline-block;
-            padding-right: 50px;
-            animation: ticker 25s linear infinite;
-            color: var(--neon-green);
-            font-weight: 500;
-            text-shadow: 0 0 5px var(--neon-green);
+            padding-left: 100%;
+            animation: ticker 60s linear infinite;
+            animation-play-state: running;
         }
-
-        .ticker-content span {
+        
+        .ticker:hover {
+            animation-play-state: paused;
+        }
+        
+        .ticker span {
             margin-right: 40px;
+            color: #f0f0f0;
+            font-size: 14px;
         }
-
+        
+        .ticker span.neon {
+            color: #0ff;
+            text-shadow: 0 0 5px #0ff;
+            font-weight: bold;
+        }
+        
         @keyframes ticker {
             0% {
-                transform: translateX(100%);
+                transform: translateX(0);
             }
             100% {
                 transform: translateX(-100%);
             }
         }
-
-        /* Hero Section */
-        .hero {
-            padding: 80px 0;
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1600003263720-95b45a4035d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center;
-            background-size: cover;
+        
+        /* Header Styles */
+        header {
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 1px solid #333;
         }
-
-        .hero-content {
-            max-width: 600px;
-        }
-
-        .hero h1 {
+        
+        .logo {
             font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .hero h1 span {
-            color: var(--neon-green);
-        }
-
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            color: #ccc;
-            max-width: 500px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: transparent;
-            color: var(--neon-green);
-            border: 2px solid var(--neon-green);
-            padding: 15px 30px;
-            font-weight: 600;
-            font-size: 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s;
+            font-weight: 900;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            color: #fff;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 0 10px rgba(57, 255, 20, 0.2);
+            position: relative;
+            display: inline-block;
         }
-
-        .cta-button:hover {
-            background-color: var(--neon-green);
-            color: var(--black);
-            box-shadow: 0 0 20px rgba(57, 255, 20, 0.6);
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 10%;
+            width: 80%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #fff, transparent);
         }
-
+        
+        .tagline {
+            font-size: 18px;
+            color: #aaa;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: #111;
+            padding: 15px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .nav-item {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid #333;
+            border-radius: 4px;
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+        
+        .nav-item:hover {
+            border-color: #fff;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        
         /* Products Section */
         .products {
-            padding: 80px 0;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
-
+        
         .section-title {
+            font-size: 32px;
             text-align: center;
-            font-size: 36px;
-            margin-bottom: 50px;
-            font-weight: 700;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
         }
-
-        .section-title span {
-            color: var(--neon-green);
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background-color: #fff;
         }
-
-        .products-grid {
+        
+        .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 30px;
         }
-
+        
         .product-card {
-            background-color: var(--dark-gray);
+            background-color: #111;
+            border: 1px solid #333;
             border-radius: 8px;
             overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
+            transition: all 0.3s;
         }
-
+        
         .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(57, 255, 20, 0.1);
+            transform: translateY(-5px);
+            border-color: #fff;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
         }
-
-        .discount-badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background-color: var(--neon-green);
-            color: var(--black);
-            padding: 5px 15px;
-            font-weight: 700;
-            border-radius: 4px;
-            font-size: 14px;
-            z-index: 2;
-        }
-
-        .product-image {
-            height: 220px;
-            background-color: var(--medium-gray);
+        
+        .product-img {
+            height: 200px;
+            background-color: #222;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
+            font-size: 60px;
+            color: #fff;
+            border-bottom: 1px solid #333;
         }
-
-        .product-image i {
-            font-size: 80px;
-            color: #555;
-        }
-
+        
         .product-info {
             padding: 20px;
         }
-
-        .product-title {
+        
+        .product-name {
             font-size: 20px;
-            font-weight: 600;
             margin-bottom: 10px;
+            color: #fff;
         }
-
+        
+        .product-desc {
+            color: #aaa;
+            margin-bottom: 15px;
+            font-size: 14px;
+            height: 60px;
+            overflow: hidden;
+        }
+        
         .product-price {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
+            color: #0ff;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
         }
-
-        .current-price {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--neon-green);
-        }
-
-        .original-price {
-            font-size: 18px;
-            color: #999;
-            text-decoration: line-through;
-        }
-
-        .add-to-cart {
-            width: 100%;
-            background-color: transparent;
-            color: var(--neon-green);
-            border: 2px solid var(--neon-green);
-            padding: 12px;
-            font-weight: 600;
+        
+        .btn {
+            display: inline-block;
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            border: 1px solid #fff;
             border-radius: 4px;
-            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
             transition: all 0.3s;
-            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
         }
-
-        .add-to-cart:hover {
-            background-color: var(--neon-green);
-            color: var(--black);
-            box-shadow: 0 0 15px rgba(57, 255, 20, 0.6);
+        
+        .btn:hover {
+            background-color: #fff;
+            color: #000;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
         }
-
+        
         /* Footer */
         footer {
-            background-color: var(--dark-gray);
-            padding: 60px 0 30px;
-            border-top: 1px solid var(--medium-gray);
+            background-color: #111;
+            padding: 40px 20px;
+            border-top: 1px solid #333;
+            margin-top: 50px;
         }
-
+        
         .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin-bottom: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
-
-        .footer-brand {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .footer-brand .brand {
+        
+        .footer-section h3 {
+            font-size: 24px;
             margin-bottom: 20px;
+            color: #fff;
+            position: relative;
+            padding-bottom: 10px;
         }
-
-        .footer-brand p {
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #fff;
+        }
+        
+        .footer-section p {
             color: #aaa;
-            max-width: 300px;
+            margin-bottom: 15px;
+            font-size: 15px;
         }
-
+        
         .contact-info {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .contact-info h3 {
-            font-size: 20px;
-            margin-bottom: 20px;
-            color: var(--neon-green);
-        }
-
-        .contact-details {
             list-style: none;
         }
-
-        .contact-details li {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        
+        .contact-info li {
+            margin-bottom: 10px;
+            color: #aaa;
         }
-
-        .contact-details i {
-            color: var(--neon-green);
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: #0ff;
             width: 20px;
         }
-
+        
         .copyright {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid var(--medium-gray);
+            margin-top: 30px;
+            border-top: 1px solid #333;
             color: #777;
             font-size: 14px;
         }
-
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 42px;
-            }
-        }
-
+        
+        /* Responsive */
         @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            nav ul {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background-color: var(--dark-gray);
-                flex-direction: column;
-                align-items: center;
-                padding: 30px 0;
-                gap: 25px;
-                transform: translateY(-100%);
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.3s;
-                border-bottom: 1px solid var(--medium-gray);
-                z-index: 99;
-            }
-
-            nav ul.active {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
-            }
-
-            .hero {
-                padding: 60px 0;
-            }
-
-            .hero h1 {
+            .logo {
                 font-size: 36px;
             }
-
-            .section-title {
-                font-size: 32px;
+            
+            .ticker-container {
+                margin-left: 100px;
             }
-        }
-
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 32px;
+            
+            .breaking-label {
+                padding: 4px 8px;
+                font-size: 14px;
             }
-
-            .hero p {
-                font-size: 16px;
+            
+            .nav-container {
+                gap: 10px;
             }
-
+            
+            .nav-item {
+                padding: 6px 12px;
+                font-size: 14px;
+            }
+            
             .section-title {
                 font-size: 28px;
             }
-
-            .footer-content {
-                flex-direction: column;
-                gap: 30px;
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 28px;
+            }
+            
+            .ticker-container {
+                margin-left: 80px;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="brand">FJ <span>GADGET</span> (FJ)</div>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <nav>
-                    <ul id="navMenu">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#products">Products</a></li>
-                        <li><a href="#wholesale">Wholesale</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
-
-    <!-- Scrolling Ticker -->
-    <div class="ticker-container">
-        <div class="ticker">
-            <div class="ticker-content">
-                <span>ðŸ”¥ BIG SALE LIVE! Up to 50% Off on All Power Banks</span>
-                <span>ðŸš€ WHOLESALE AVAILABLE - Contact for Bulk Orders</span>
-                <span>ðŸ†• NEW PREMIUM POWERBANKS IN STOCK - Fast Charging & High Capacity</span>
-                <span>ðŸ“¦ FREE SHIPPING on Orders Over Tk 2000</span>
-                <span>ðŸ”‹ LIMITED TIME OFFER - Get 40% Off on All Wireless Chargers</span>
+    <!-- Breaking News Ticker -->
+    <div class="breaking-news">
+        <div class="breaking-label">Breaking</div>
+        <div class="ticker-container">
+            <div class="ticker">
+                <span class="neon">New Arrival: iPhone 16 Protective Cases</span>
+                <span>Summer Sale: 20% off on all mobile covers</span>
+                <span class="neon">Exclusive: Samsung Galaxy S24 Ultra Tempered Glass</span>
+                <span>New Collection: Wireless Charging Pads</span>
+                <span class="neon">Limited Offer: OnePlus 12R Cases at 50% off</span>
+                <span>Coming Soon: Gaming Controller Mobile Holders</span>
             </div>
         </div>
     </div>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Power Up Your <span>Devices</span> with Premium Power Banks</h1>
-                <p>Experience the future of mobile charging with our high-capacity, fast-charging power banks. Designed for the modern tech-savvy user.</p>
-                <a href="#products" class="cta-button">Shop Now</a>
-            </div>
+    
+    <!-- Header -->
+    <header>
+        <h1 class="logo">FJ GADGET</h1>
+        <p class="tagline">Premium Mobile Accessories - Quality Products at Best Prices</p>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-item">Home</a>
+            <a href="#" class="nav-item">Mobile Cases</a>
+            <a href="#" class="nav-item">Tempered Glass</a>
+            <a href="#" class="nav-item">Chargers</a>
+            <a href="#" class="nav-item">Headphones</a>
+            <a href="#" class="nav-item">Offers</a>
+            <a href="#" class="nav-item">Contact</a>
         </div>
-    </section>
-
+    </nav>
+    
     <!-- Products Section -->
-    <section class="products" id="products">
-        <div class="container">
-            <h2 class="section-title">Featured <span>Products</span></h2>
-            <div class="products-grid">
-                <!-- Product 1 -->
-                <div class="product-card">
-                    <div class="discount-badge">40% OFF</div>
-                    <div class="product-image">
-                        <i class="fas fa-battery-full"></i>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title">HyperCharge Power Bank</h3>
-                        <div class="product-price">
-                            <span class="current-price">Tk 2,499</span>
-                            <span class="original-price">Tk 4,165</span>
-                        </div>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
+    <section class="products">
+        <h2 class="section-title">Our Products</h2>
+        
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <i class="fas fa-mobile-alt"></i>
                 </div>
-
-                <!-- Product 2 -->
-                <div class="product-card">
-                    <div class="discount-badge">30% OFF</div>
-                    <div class="product-image">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title">UltraFast Wireless Charger</h3>
-                        <div class="product-price">
-                            <span class="current-price">Tk 1,799</span>
-                            <span class="original-price">Tk 2,570</span>
-                        </div>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
+                <div class="product-info">
+                    <h3 class="product-name">iPhone 15 Pro Case</h3>
+                    <p class="product-desc">Military grade protection, anti-scratch coating, super slim design</p>
+                    <div class="product-price">$14.99</div>
+                    <a href="#" class="btn">Order Now</a>
                 </div>
-
-                <!-- Product 3 -->
-                <div class="product-card">
-                    <div class="discount-badge">25% OFF</div>
-                    <div class="product-image">
-                        <i class="fas fa-solar-panel"></i>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title">Solar Power Bank</h3>
-                        <div class="product-price">
-                            <span class="current-price">Tk 3,299</span>
-                            <span class="original-price">Tk 4,399</span>
-                        </div>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <i class="fas fa-shield-alt"></i>
                 </div>
-
-                <!-- Product 4 -->
-                <div class="product-card">
-                    <div class="discount-badge">35% OFF</div>
-                    <div class="product-image">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title">MagSafe Compatible Charger</h3>
-                        <div class="product-price">
-                            <span class="current-price">Tk 2,199</span>
-                            <span class="original-price">Tk 3,383</span>
-                        </div>
-                        <button class="add-to-cart">Add to Cart</button>
-                    </div>
+                <div class="product-info">
+                    <h3 class="product-name">9D Tempered Glass</h3>
+                    <p class="product-desc">9D curved, 9H hardness, oleophobic coating, fingerprint resistant</p>
+                    <div class="product-price">$5.99</div>
+                    <a href="#" class="btn">Order Now</a>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Fast Charger 65W</h3>
+                    <p class="product-desc">Galaxy Super Fast Charging 2.0 support, Type-C port, overheat protection</p>
+                    <div class="product-price">$21.99</div>
+                    <a href="#" class="btn">Order Now</a>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <i class="fas fa-headphones"></i>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Wireless Headphones</h3>
+                    <p class="product-desc">Bluetooth 5.2, 40hrs battery, noise cancellation, water resistant</p>
+                    <div class="product-price">$39.99</div>
+                    <a href="#" class="btn">Order Now</a>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="brand">FJ <span>GADGET</span> (FJ)</div>
-                    <p>Premium mobile accessories for the modern tech enthusiast. We provide high-quality products with the latest technology.</p>
-                </div>
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <ul class="contact-details">
-                        <li>
-                            <i class="fas fa-user"></i>
-                            <span>Md Feroz Hosen</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <span>firoz.hossen68825@gmail.com</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone"></i>
-                            <span>+8801978068825</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Dhaka, Bangladesh</span>
-                        </li>
-                    </ul>
-                </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>FJ GADGET</h3>
+                <p>Bangladesh's leading mobile accessories retailer. We ensure highest quality products at the best prices for our customers.</p>
+                <p>Online orders, cash on delivery available nationwide.</p>
             </div>
-            <div class="copyright">
-                <p>&copy; 2023 FJ GADGET. All rights reserved. | Designed with minimalism in mind</p>
+            
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-user"></i> Md Feroz Hosen</li>
+                    <li><i class="fas fa-envelope"></i> firoz.hossen68825@gmail.com</li>
+                    <li><i class="fas fa-phone"></i> +8801978068825</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</li>
+                </ul>
             </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="#" class="nav-item" style="display: inline-block; margin-bottom: 10px;">Terms & Conditions</a></p>
+                <p><a href="#" class="nav-item" style="display: inline-block; margin-bottom: 10px;">Privacy Policy</a></p>
+                <p><a href="#" class="nav-item" style="display: inline-block; margin-bottom: 10px;">Return Policy</a></p>
+                <p><a href="#" class="nav-item" style="display: inline-block; margin-bottom: 10px;">Help & Support</a></p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2023 FJ GADGET. All rights reserved.
         </div>
     </footer>
 
     <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            const icon = mobileMenuBtn.querySelector('i');
-            if (navMenu.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                const icon = mobileMenuBtn.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+        // Breaking news ticker speed control
+        document.addEventListener('DOMContentLoaded', function() {
+            const ticker = document.querySelector('.ticker');
+            const originalContent = ticker.innerHTML;
+            
+            // Duplicate ticker content for seamless scrolling
+            ticker.innerHTML += originalContent;
+            
+            // Set slow speed for ticker
+            ticker.style.animationDuration = '80s';
+            
+            // Pause on hover, resume on mouse leave
+            ticker.addEventListener('mouseenter', function() {
+                this.style.animationPlayState = 'paused';
             });
-        });
-
-        // Add to Cart functionality
-        const addToCartButtons = document.querySelectorAll('.add-to-cart');
-        
-        addToCartButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const productTitle = this.closest('.product-card').querySelector('.product-title').textContent;
-                
-                // Visual feedback
-                const originalText = this.textContent;
-                this.textContent = 'Added to Cart!';
-                this.style.backgroundColor = '#39FF14';
-                this.style.color = '#000';
-                
-                // Reset button after 2 seconds
-                setTimeout(() => {
-                    this.textContent = originalText;
-                    this.style.backgroundColor = '';
-                    this.style.color = '';
-                }, 2000);
-                
-                // In a real application, you would add the product to a cart array or object
-                console.log(`Added ${productTitle} to cart`);
+            
+            ticker.addEventListener('mouseleave', function() {
+                this.style.animationPlayState = 'running';
             });
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
+            
+            // Add neon effect to product prices
+            const productPrices = document.querySelectorAll('.product-price');
+            productPrices.forEach(price => {
+                price.addEventListener('mouseenter', function() {
+                    this.style.textShadow = '0 0 10px rgba(0, 255, 255, 0.8)';
+                });
                 
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
+                price.addEventListener('mouseleave', function() {
+                    this.style.textShadow = '0 0 5px rgba(0, 255, 255, 0.5)';
+                });
+            });
+            
+            // Add neon effect to navigation items
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.boxShadow = '0 0 15px rgba(255, 255, 255, 0.5)';
+                    this.style.borderColor = '#0ff';
+                });
                 
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
-                        behavior: 'smooth'
-                    });
-                }
+                item.addEventListener('mouseleave', function() {
+                    this.style.boxShadow = 'none';
+                    this.style.borderColor = '#333';
+                });
             });
         });
     </script>
